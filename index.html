@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Calculator</title>
+
+  <style>
+
+    body {
+
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:lightpink;
+            margin: 0;
+    }
+        .calculator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+   
+
+    h1 {
+
+      text-align: center;
+
+    }
+
+   
+
+    .calculator {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+      background:lightcyan;
+
+      border: 1px solid #lightpink;
+
+      border-radius: 50px;
+
+      padding: 20px;
+
+      width: 290px;
+
+    }
+
+   
+
+    .calculator > * {
+
+      margin: 10px 0;
+
+    }
+
+   
+
+    .calculator > .screen {
+
+      width: 100%;
+
+      height: 40px;
+
+      font-size: 22px;
+
+      text-align: right;
+
+      border: 5px solid putih;
+
+      border-radius: 35px;
+
+      padding: 5px;
+
+      box-shadow: inset 0 1px 3px lightcyan;
+
+      background: solid putih;
+      ;
+
+    }
+
+   
+
+    .calculator > .buttons {
+
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      grid-column-gap: 10px;
+
+      grid-row-gap: 10px;
+
+    }
+
+   
+
+    .calculator > .buttons > button {
+
+      width: 100%;
+
+      height: 50px;
+
+      font-size: 22px;
+
+      background:lightgoldenrodyellow;
+
+    border: 1px solid lightcoral; 
+
+      border-radius: 35px;
+
+      cursor: pointer;
+
+      box-shadow: 0 1px 3px lightcyan;
+
+    }
+
+   
+
+    .calculator > .buttons > button:hover {
+
+      background: #lightpink;
+
+    }
+
+   
+
+    .calculator > .buttons > button.special {
+
+      background: #lightskyblue;
+
+      box-shadow: lightskyblue;
+
+
+    }
+     .calculator > .buttons > button.equal {
+
+      background: #lightskyblue;
+
+      box-shadow: lightskyblue;
+       width: 350%;
+
+      
+    }
+
+   
+
+    .calculator > .buttons > button.special:hover {
+
+      background:putih;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="calculator">
+    <marquee class="title-marquee">kalkulator sederhana flechya marva andini</marquee>
+    
+    <input type="text" class="screen" placeholder ="0"/>
+
+    <div class="buttons">
+
+      <button onclick="clearInput()" class="special">AC</button>
+
+      <button onclick="deleteLastChar()" class="special">Del</button>
+
+      <button onclick="addToInput('*')" class="special">*</button>
+
+     
+
+
+       <button onclick="addToInput('-')" class="special">-</button>
+
+      <button onclick="addToInput(7)">7</button>
+
+      <button onclick="addToInput(8)">8</button>
+
+       <button onclick="addToInput(9)">9</button>
+
+       
+
+     
+
+      <button onclick="addToInput('+')" class="special">+</button>
+
+
+      <button onclick="addToInput(4)">4</button>
+
+      <button onclick="addToInput(5)">5</button>
+
+      <button onclick="addToInput(6)">6</button>
+
+      <button onclick="addToInput('/')" class="special">/</button>
+
+       <button onclick="addToInput(1)">1</button>
+
+      <button onclick="addToInput(2)">2</button>
+
+      <button onclick="addToInput(3)">3</button>
+
+      
+
+      
+      <button onclick="addToInput('.')">.</button>
+      <button onclick="addToInput(0)">0</button>
+      <button onclick="calculate()" class="equal">=</button>
+
+      
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function addToInput(num) {
+
+      var input = document.querySelector('.calculator .screen');
+
+      input.value = input.value + num;
+
+    }
+
+   
+
+    function calculate() {
+
+      var input = document.querySelector('.calculator .screen');
+
+      var result = eval(input.value); // Evaluate the input string as an expression
+
+      result = parseInt(result); // Convert the result to an integer
+
+      input.value = result;
+
+    }
+
+   
+
+    function clearInput() {
+
+      var input = document.querySelector('.calculator .screen');
+
+      input.value = '';
+
+    }
+
+   
+
+    function deleteLastChar() {
+
+      var input = document.querySelector('.calculator .screen');
+
+      input.value = input.value.slice(0, -1);
+
+    }
+
+  </script>
+
+</body>
+
+</html>
